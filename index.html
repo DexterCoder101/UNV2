@@ -1,100 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>UN By Dexter</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #f4f6f8;
-      color: #333;
-      scroll-behavior: smooth;
-    }
-    header {
-      background: linear-gradient(135deg, #0b5ea8, #1e90ff);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-      animation: fadeDown 1.2s ease;
-    }
-    nav {
-      background-color: #083d6b;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 20px;
-      padding: 12px 0;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: transform 0.2s, color 0.2s;
-    }
-    nav a:hover {
-      transform: scale(1.1);
-      color: #ffdd57;
-    }
-    .container {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    section {
-      margin-bottom: 60px;
-      opacity: 0;
-      transform: translateY(40px);
-      animation: fadeUp 0.8s ease forwards;
-    }
-    h2 {
-      color: #0b5ea8;
-      margin-bottom: 10px;
-    }
-    .card {
-      background: white;
-      padding: 22px;
-      border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.12);
-      animation: popIn 0.4s ease;
-    }
-    button {
-      padding: 10px 18px;
-      border: none;
-      border-radius: 8px;
-      background-color: #0b5ea8;
-      color: white;
-      font-size: 16px;
-      cursor: pointer;
-      transition: transform 0.15s, background-color 0.2s;
-    }
-    button:hover {
-      background-color: #083d6b;
-      transform: scale(1.05);
-    }
-    #quiz-area, #clicker-area, #tf-area, #memory-area {
-      animation: fadeGame 0.4s ease;
-    }
-    @keyframes fadeUp {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes popIn {
-      from { transform: scale(0.9); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
-    }
-    @keyframes fadeGame {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>United Nations | School Project</title>
+
+<style>
+/* ===== BASE ===== */
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:#f4f6f8;
+  color:#333;
+  scroll-behavior:smooth;
+}
+body.dark{background:#0f1115;color:#e6e6e6}
+
+header{
+  background:linear-gradient(135deg,#0b5ea8,#1e90ff);
+  color:#fff;
+  padding:40px 20px;
+  text-align:center;
+  animation:slideDown 1s ease;
+}
+
+nav{
+  background:#083d6b;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:14px;
+  padding:12px;
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+nav a, nav button{
+  color:white;
+  background:none;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+}
+nav a{text-decoration:none}
+nav a:hover, nav button:hover{color:#ffdd57;transform:scale(1.1)}
+
+.container{max-width:1100px;margin:auto;padding:40px 20px}
+section{margin-bottom:60px;animation:fadeUp .8s ease}
+h2{color:#0b5ea8}
+body.dark h2{color:#6fb7ff}
+
+.card{
+  background:white;
+  padding:22px;
+  border-radius:14px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  animation:pop .4s ease;
+}
+body.dark .card{background:#1c1f26}
+
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+}
+
+button.game-btn{
+  padding:12px;
+  border-radius:12px;
+  border:none;
+  background:#0b5ea8;
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+  transition:.2s;
+}
+button.game-btn:hover{background:#083d6b;transform:translateY(-4px)}
+
+#game-area{margin-top:20px;min-height:140px}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes slideDown{from{opacity:0;transform:translateY(-40px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+@keyframes shake{0%{transform:translateX(0)}25%{transform:translateX(-5px)}50%{transform:translateX(5px)}75%{transform:translateX(-5px)}100%{transform:none}}
+
+.shake{animation:shake .4s}
+
+</style>
 </head>
 <body>
 
@@ -108,273 +101,193 @@
   <a href="#history">History</a>
   <a href="#goals">Goals</a>
   <a href="#organs">Organs</a>
-  <a href="#peacekeeping">Peacekeeping</a>
-  <a href="#agencies">Agencies</a>
   <a href="#sdgs">SDGs</a>
   <a href="#impact">Impact</a>
-  <a href="#game">Games</a>
-  <input type="text" id="search" placeholder="Search..." onkeyup="searchSite()" style="padding:6px; border-radius:6px; border:none;">
+  <a href="#games">Games</a>
+  <button id="darkToggle">🌙 Dark Mode</button>
 </nav>
 
 <div class="container">
 
 <section id="about">
   <h2>About the United Nations</h2>
-  
-  <p>The United Nations (UN) is an international organization founded in 1945. It was created after World War II to prevent future wars and promote peace among nations.</p>
-  <p>The UN provides a platform where countries can discuss global problems, cooperate peacefully, and find solutions together instead of using conflict.</p>
-  <p>Today, the UN works in areas such as peacekeeping, humanitarian aid, climate action, education, and human rights protection.</p>
+  <p>The United Nations (UN) is an international organization founded in 1945 after World War II.</p>
+  <p>Its main purpose is to maintain peace, protect human rights, deliver humanitarian aid, and promote sustainable development.</p>
 </section>
 
 <section id="history">
-  <h2>History of the United Nations</h2>
-  
-  <p>The UN officially began on October 24, 1945. Its creation was inspired by the need for global cooperation after the destruction caused by World War II.</p>
-  <p>The organization replaced the League of Nations, which was unable to stop the war. Learning from past mistakes, the UN was designed to be stronger and more inclusive.</p>
-  <p>Starting with 51 member states, the organization has grown to 193 members today.</p>
+  <h2>History</h2>
+  <p>The UN officially began on October 24, 1945, starting with 51 member states.</p>
+  <p>Today, it has 193 member countries.</p>
 </section>
 
 <section id="goals">
-  <h2>Goals of the United Nations</h2>
+  <h2>Main Goals</h2>
   <div class="card-grid">
-    <div class="card">Maintain international peace and security</div>
+    <div class="card">Maintain international peace</div>
     <div class="card">Protect human rights</div>
     <div class="card">Deliver humanitarian aid</div>
     <div class="card">Promote sustainable development</div>
-    <div class="card">Support international law</div>
   </div>
 </section>
 
 <section id="organs">
-  <h2>Main Organs of the UN</h2>
+  <h2>Main Organs</h2>
   <ul>
-    <li><strong>General Assembly</strong> – All member states meet and vote</li>
-    <li><strong>Security Council</strong> – Maintains global peace</li>
-    <li><strong>International Court of Justice</strong> – Solves legal disputes</li>
-    <li><strong>Secretariat</strong> – Manages daily UN operations</li>
-    <li><strong>ECOSOC</strong> – Focuses on economic and social development</li>
+    <li>General Assembly</li>
+    <li>Security Council</li>
+    <li>International Court of Justice</li>
+    <li>Secretariat</li>
+    <li>ECOSOC</li>
   </ul>
-</section>
-
-<section id="peacekeeping">
-  <h2>UN Peacekeeping</h2>
-  
-  <p>UN Peacekeeping missions help stabilize regions affected by conflict and protect civilians from violence.</p>
-  <p>Peacekeepers are often recognized by their blue helmets and come from many different countries.</p>
-  <ul>
-    <li>Protect civilians in dangerous areas</li>
-    <li>Support peace agreements</li>
-    <li>Help organize fair elections</li>
-    <li>Assist countries in rebuilding</li>
-  </ul>
-</section>
-
-<section id="agencies">
-  <h2>Specialized Agencies</h2>
-  <div class="card-grid">
-    <div class="card"><strong>WHO</strong> – World Health Organization</div>
-    <div class="card"><strong>UNICEF</strong> – Helps children worldwide</div>
-    <div class="card"><strong>UNESCO</strong> – Education, science, culture</div>
-    <div class="card"><strong>WFP</strong> – Provides food aid</div>
-  </div>
 </section>
 
 <section id="sdgs">
-  <h2>Sustainable Development Goals (SDGs)</h2>
-  
-  <p>The Sustainable Development Goals (SDGs) are 17 global goals created by the United Nations in 2015.</p>
-  <p>They aim to end poverty, protect the planet, and ensure peace and prosperity for everyone by the year 2030.</p>
-  <p>Each goal focuses on important issues such as clean water, education, gender equality, and climate action.</p>
+  <h2>Sustainable Development Goals</h2>
+  <p>The UN created 17 SDGs to end poverty, protect the planet, and ensure prosperity for all by 2030.</p>
 </section>
 
 <section id="impact">
   <h2>Global Impact</h2>
   
-  <p>The UN responds to global crises such as wars, natural disasters, and health emergencies.</p>
-  <p>Organizations like UNICEF, WHO, and WFP help millions of people every year by providing food, education, healthcare, and shelter.</p>
-  <p>Through international cooperation, the UN helps create a safer and more stable world.</p>
+  <p>The United Nations has a major influence on global stability and cooperation. Through diplomacy, peacekeeping, and humanitarian aid, the UN helps reduce conflict and suffering worldwide.</p>
+  <p>Every year, UN agencies assist millions of people affected by war, poverty, hunger, and natural disasters.</p>
+  <ul>
+    <li>Provides emergency aid after earthquakes, floods, and hurricanes</li>
+    <li>Supports refugees and displaced people</li>
+    <li>Helps control global diseases and pandemics</li>
+    <li>Promotes education and gender equality</li>
+  </ul>
 </section>
 
-<section id="game">
-  <h2>🎮 UN Games Center</h2>
-  <p>Choose a game below. Only one runs at a time for smooth performance.</p>
+<section id="challenges">
+  <h2>Challenges Faced by the United Nations</h2>
+  <p>Despite its importance, the UN faces many challenges in carrying out its mission.</p>
+  <ul>
+    <li>Conflicts between powerful member states</li>
+    <li>Limited funding for humanitarian programs</li>
+    <li>Difficulty enforcing international laws</li>
+    <li>Political disagreements in the Security Council</li>
+  </ul>
+</section>
 
-  <div class="card" style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:20px;">
-    <button onclick="loadGame('quiz')">🧠 UN Quiz</button>
-    <button onclick="loadGame('rps')">✊ Rock Paper Scissors</button>
-    <button onclick="loadGame('guess')">🎯 Number Guess</button>
-    <button onclick="loadGame('math')">➕ Math Challenge</button>
-    <button onclick="loadGame('typing')">⌨️ Typing Speed</button>
-    <button onclick="loadGame('reaction')">⚡ Reaction Test</button>
-    <button onclick="loadGame('memory')">🧩 Memory Match</button>
-    <button onclick="loadGame('tf')">✅❌ True or False</button>
-    <button onclick="loadGame('spinner')">🎡 Lucky Spinner</button>
-    <button onclick="loadGame('clicker')">🌍 UN Clicker</button>
+<section id="future">
+  <h2>The Future of the United Nations</h2>
+  <p>The UN continues to adapt to modern global issues such as climate change, cyber security, and global health crises.</p>
+  <p>Future priorities include:</p>
+  <ul>
+    <li>Fighting climate change and protecting the environment</li>
+    <li>Improving global access to education and technology</li>
+    <li>Strengthening international cooperation</li>
+    <li>Supporting peaceful conflict resolution</li>
+  </ul>
+</section>
+
+<section id="games">
+  <h2>🎮 UN Games Center</h2>
+  <p>Select a game. Games load one at a time for stability.</p>
+
+  <div class="card-grid">
+    <button class="game-btn" onclick="loadGame('quiz')">🧠 UN Quiz</button>
+    <button class="game-btn" onclick="loadGame('rps')">✊ RPS</button>
+    <button class="game-btn" onclick="loadGame('guess')">🎯 Guess</button>
+    <button class="game-btn" onclick="loadGame('math')">➕ Math</button>
+    <button class="game-btn" onclick="loadGame('typing')">⌨️ Typing</button>
+    <button class="game-btn" onclick="loadGame('reaction')">⚡ Reaction</button>
+    <button class="game-btn" onclick="loadGame('tf')">✅❌ True / False</button>
+    <button class="game-btn" onclick="loadGame('spinner')">🎡 Spinner</button>
   </div>
 
   <div id="game-area"></div>
 </section>
 
-<section id="conclusion">
-  <h2>Conclusion</h2>
-  <p>The United Nations plays a vital role in maintaining international peace, promoting human rights, and supporting global development.</p>
-  <p>Through cooperation between nations, the UN helps solve global problems and build a better future for everyone.</p>
-</section>
-
-<section id="references">
-  <h2>References</h2>
-  <ul>
-    <li>United Nations Official Website</li>
-    <li>UNICEF</li>
-    <li>World Health Organization</li>
-    <li>UNESCO</li>
-  </ul>
-</section>
-
 </div>
 
-<footer>
-  <p>UN</p>
-</footer>
+<footer style="text-align:center;padding:20px">United Nations School Project</footer>
 
 <script>
-const gameArea = document.getElementById('game-area');
+const gameArea=document.getElementById('game-area');
 
-function loadGame(name) {
-  gameArea.innerHTML = '';
-  if (name === 'quiz') quizGame();
-  if (name === 'rps') rpsGame();
-  if (name === 'guess') guessGame();
-  if (name === 'math') mathGame();
-  if (name === 'typing') typingGame();
-  if (name === 'reaction') reactionGame();
-  if (name === 'memory') memoryGame();
-  if (name === 'tf') tfGame();
-  if (name === 'spinner') spinnerGame();
-  if (name === 'clicker') clickerGame();
+document.getElementById('darkToggle').onclick=()=>document.body.classList.toggle('dark');
+
+function loadGame(name){
+  gameArea.innerHTML='';
+  const card=document.createElement('div');
+  card.className='card';
+  gameArea.appendChild(card);
+
+  if(name==='quiz') quiz(card);
+  if(name==='rps') rps(card);
+  if(name==='guess') guess(card);
+  if(name==='math') math(card);
+  if(name==='typing') typing(card);
+  if(name==='reaction') reaction(card);
+  if(name==='tf') tf(card);
+  if(name==='spinner') spinner(card);
 }
 
-// 🧠 QUIZ
-function quizGame() {
-  const qs = [
-    ['When was the UN founded?', '1945'],
-    ['How many members?', '193'],
-    ['UN HQ city?', 'New York'],
-    ['Peace body?', 'Security Council'],
-    ['How many SDGs?', '17']
-  ];
-  let i = 0, score = 0;
-  const div = document.createElement('div');
-  div.className = 'card';
-  gameArea.appendChild(div);
-
-  function next() {
-    if (i >= qs.length) {
-      div.innerHTML = `<h3>Finished!</h3><p>Score: ${score}/${qs.length}</p>`;
-      return;
+/* ===== GAMES (REWORKED) ===== */
+function quiz(c){
+  const q=[['UN founded year?','1945'],['Members?','193'],['HQ city?','New York']];
+  let i=0,score=0;
+  function next(){
+    if(i>=q.length){c.innerHTML=`<h3>Score: ${score}/${q.length}</h3>`;return}
+    c.innerHTML=`<p>${q[i][0]}</p><input id='a'><button>Submit</button>`;
+    c.querySelector('button').onclick=()=>{
+      if(a.value.toLowerCase().includes(q[i][1].toLowerCase()))score++;
+      i++;next();
     }
-    div.innerHTML = `<p>${qs[i][0]}</p><input id='a'><br><button>Submit</button>`;
-    div.querySelector('button').onclick = () => {
-      if (document.getElementById('a').value.toLowerCase().includes(qs[i][1].toLowerCase())) score++;
-      i++; next();
-    };
   }
   next();
 }
 
-// ✊ RPS
-function rpsGame() {
-  const div = document.createElement('div'); div.className='card';
-  div.innerHTML = '<h3>Rock Paper Scissors</h3>';
-  ['Rock','Paper','Scissors'].forEach(c=>{
-    const b=document.createElement('button'); b.textContent=c;
-    b.onclick=()=>alert('UN chose ' + ['Rock','Paper','Scissors'][Math.floor(Math.random()*3)]);
-    div.appendChild(b);
-  });
-  gameArea.appendChild(div);
+function rps(c){
+  c.innerHTML='<p>Choose one:</p>';
+  ['Rock','Paper','Scissors'].forEach(v=>{
+    const b=document.createElement('button');b.textContent=v;b.className='game-btn';
+    b.onclick=()=>{c.classList.add('shake');setTimeout(()=>c.classList.remove('shake'),400);alert('UN chose '+['Rock','Paper','Scissors'][Math.floor(Math.random()*3)])};
+    c.appendChild(b);
+  })
 }
 
-// 🎯 GUESS
-function guessGame() {
+function guess(c){
   const n=Math.floor(Math.random()*10)+1;
-  const div=document.createElement('div'); div.className='card';
-  div.innerHTML='<p>Guess number 1–10</p><input id=g><button>Check</button>';
-  div.querySelector('button').onclick=()=>alert(document.getElementById('g').value==n?'Correct!':'Wrong! It was '+n);
-  gameArea.appendChild(div);
+  c.innerHTML='<p>Guess number 1–10</p><input id=g><button>Check</button>';
+  c.querySelector('button').onclick=()=>alert(g.value==n?'Correct!':'Wrong! '+n);
 }
 
-// ➕ MATH
-function mathGame() {
-  const a=Math.floor(Math.random()*10), b=Math.floor(Math.random()*10);
-  const div=document.createElement('div'); div.className='card';
-  div.innerHTML=`<p>${a} + ${b} = ?</p><input id=m><button>Check</button>`;
-  div.querySelector('button').onclick=()=>alert(document.getElementById('m').value==a+b?'Correct!':'Wrong!');
-  gameArea.appendChild(div);
+function math(c){
+  const a=Math.floor(Math.random()*10),b=Math.floor(Math.random()*10);
+  c.innerHTML=`<p>${a}+${b}=?</p><input id=m><button>Check</button>`;
+  c.querySelector('button').onclick=()=>alert(m.value==a+b?'Correct':'Wrong');
 }
 
-// ⌨️ TYPING
-function typingGame() {
-  const word='peace';
-  const div=document.createElement('div'); div.className='card';
-  div.innerHTML=`<p>Type the word: <b>${word}</b></p><input id=t><button>Check</button>`;
-  div.querySelector('button').onclick=()=>alert(document.getElementById('t').value===word?'Great!':'Try again');
-  gameArea.appendChild(div);
+function typing(c){
+  const w='peace';
+  c.innerHTML=`<p>Type <b>${w}</b></p><input id=t><button>Check</button>`;
+  c.querySelector('button').onclick=()=>alert(t.value===w?'Nice!':'Try again');
 }
 
-// ⚡ REACTION
-function reactionGame() {
-  const div=document.createElement('div'); div.className='card';
-  div.innerHTML='<p>Wait for GO</p>';
-  setTimeout(()=>{div.innerHTML='<button>GO!</button>'; div.querySelector('button').onclick=()=>alert('Nice reflex!');},2000+Math.random()*2000);
-  gameArea.appendChild(div);
+function reaction(c){
+  c.innerHTML='<p>Wait for GO...</p>';
+  setTimeout(()=>{c.innerHTML='<button class="game-btn">GO!</button>';c.querySelector('button').onclick=()=>alert('Fast!')},1500+Math.random()*2000)
 }
 
-// 🧩 MEMORY
-function memoryGame() {
-  const div=document.createElement('div'); div.className='card';
-  div.innerHTML='<p>Memory game (demo)</p><p>Match UN terms</p>';
-  gameArea.appendChild(div);
-}
-
-// ✅❌ TF
-function tfGame() {
-  const q=Math.random()>0.5;
-  const div=document.createElement('div'); div.className='card';
-  div.innerHTML='<p>The UN was founded in 1945</p>';
+function tf(c){
+  c.innerHTML='<p>The UN was founded in 1945</p>';
   ['True','False'].forEach(v=>{
-    const b=document.createElement('button'); b.textContent=v;
-    b.onclick=()=>alert((v==='True')===q?'Correct':'Wrong'); div.appendChild(b);
-  });
-  gameArea.appendChild(div);
+    const b=document.createElement('button');b.textContent=v;b.className='game-btn';
+    b.onclick=()=>alert(v==='True'?'Correct':'Wrong');
+    c.appendChild(b);
+  })
 }
 
-// 🎡 SPINNER
-function spinnerGame() {
-  const prizes=['Win','Try again','Bonus','Nothing'];
-  const div=document.createElement('div'); div.className='card';
-  div.innerHTML='<button>Spin</button>';
-  div.querySelector('button').onclick=()=>alert(prizes[Math.floor(Math.random()*prizes.length)]);
-  gameArea.appendChild(div);
-}
-
-// 🌍 CLICKER
-function clickerGame() {
-  let c=0;
-  const div=document.createElement('div'); div.className='card';
-  div.innerHTML='<button>Click me!</button><p>0</p>';
-  const p=div.querySelector('p');
-  div.querySelector('button').onclick=()=>{c++;p.textContent=c};
-  gameArea.appendChild(div);
+function spinner(c){
+  const p=['Win','Try Again','Bonus','Nothing'];
+  c.innerHTML='<button class="game-btn">Spin</button>';
+  c.querySelector('button').onclick=()=>alert(p[Math.floor(Math.random()*p.length)])
 }
 </script>
-<style>
-#progress-container { background:#ddd; height:10px; border-radius:10px; margin:10px 0; }
-#progress-bar { height:10px; width:0%; background:#0b5ea8; border-radius:10px; transition:width 0.3s; }
-#timer { font-weight:bold; margin-bottom:10px; }
-body.dark { background:#111; color:#eee; }
-body.dark header, body.dark nav, body.dark footer { background:#000; }
-body.dark .card { background:#222; color:#eee; }
-</style>
 
 </body>
 </html>
