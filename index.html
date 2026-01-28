@@ -104,6 +104,7 @@ button.game-btn:hover{background:#083d6b;transform:translateY(-4px)}
   <a href="#sdgs">SDGs</a>
   <a href="#impact">Impact</a>
   <a href="#games">Games</a>
+  <input type="text" id="search" placeholder="Search..." style="padding:6px;border-radius:8px;border:none" onkeyup="searchSite()">
   <button id="darkToggle">🌙 Dark Mode</button>
 </nav>
 
@@ -111,23 +112,26 @@ button.game-btn:hover{background:#083d6b;transform:translateY(-4px)}
 
 <section id="about">
   <h2>About the United Nations</h2>
-  <p>The United Nations (UN) is an international organization founded in 1945 after World War II.</p>
-  <p>Its main purpose is to maintain peace, protect human rights, deliver humanitarian aid, and promote sustainable development.</p>
+  <p>The United Nations (UN) is an international organization founded in 1945 after World War II to prevent future global conflicts.</p>
+  <p>It brings countries together to discuss global problems, create international laws, and cooperate peacefully.</p>
+  <p>The UN works in almost every country in the world and focuses on peace, human rights, development, and humanitarian aid.</p>
 </section>
 
 <section id="history">
   <h2>History</h2>
-  <p>The UN officially began on October 24, 1945, starting with 51 member states.</p>
-  <p>Today, it has 193 member countries.</p>
+  <p>The UN was officially established on October 24, 1945, after the devastation of World War II.</p>
+  <p>It replaced the League of Nations, which failed to prevent war.</p>
+  <p>Starting with 51 countries, the UN has grown to 193 member states today.</p>
 </section>
 
 <section id="goals">
   <h2>Main Goals</h2>
   <div class="card-grid">
-    <div class="card">Maintain international peace</div>
-    <div class="card">Protect human rights</div>
-    <div class="card">Deliver humanitarian aid</div>
-    <div class="card">Promote sustainable development</div>
+    <div class="card">Maintain international peace and security</div>
+    <div class="card">Protect and promote human rights</div>
+    <div class="card">Deliver humanitarian aid during crises</div>
+    <div class="card">Support economic and social development</div>
+    <div class="card">Encourage cooperation between nations</div>
   </div>
 </section>
 
@@ -144,7 +148,16 @@ button.game-btn:hover{background:#083d6b;transform:translateY(-4px)}
 
 <section id="sdgs">
   <h2>Sustainable Development Goals</h2>
-  <p>The UN created 17 SDGs to end poverty, protect the planet, and ensure prosperity for all by 2030.</p>
+  <p>The UN created 17 Sustainable Development Goals (SDGs) to end poverty, protect the planet, and ensure prosperity for all by 2030.</p>
+  <ul>
+    <li>No Poverty</li>
+    <li>Zero Hunger</li>
+    <li>Good Health and Well-being</li>
+    <li>Quality Education</li>
+    <li>Gender Equality</li>
+    <li>Climate Action</li>
+  </ul>
+  <p>Countries voluntarily work together to achieve these goals.</p>
 </section>
 
 <section id="impact">
@@ -185,10 +198,10 @@ button.game-btn:hover{background:#083d6b;transform:translateY(-4px)}
 
 <section id="games">
   <h2>🎮 UN Games Center</h2>
-  <p>Select a game. Games load one at a time for stability.</p>
+  <p>Select a game. Games are educational, stable, and school-safe.</p>
 
   <div class="card-grid">
-    <button class="game-btn" onclick="loadGame('quiz')">🧠 UN Quiz</button>
+    <button class="game-btn" onclick="loadGame('quiz')">🧠 Hard UN Quiz</button>
     <button class="game-btn" onclick="loadGame('rps')">✊ RPS</button>
     <button class="game-btn" onclick="loadGame('guess')">🎯 Guess</button>
     <button class="game-btn" onclick="loadGame('math')">➕ Math</button>
@@ -196,6 +209,18 @@ button.game-btn:hover{background:#083d6b;transform:translateY(-4px)}
     <button class="game-btn" onclick="loadGame('reaction')">⚡ Reaction</button>
     <button class="game-btn" onclick="loadGame('tf')">✅❌ True / False</button>
     <button class="game-btn" onclick="loadGame('spinner')">🎡 Spinner</button>
+    <button class="game-btn" onclick="loadGame('coin')">🪙 Coin</button>
+    <button class="game-btn" onclick="loadGame('dice')">🎲 Dice</button>
+    <button class="game-btn" onclick="loadGame('capital')">🌍 Capitals</button>
+    <button class="game-btn" onclick="loadGame('clicker')">🖱 Clicker</button>
+    <button class="game-btn" onclick="loadGame('memory')">🧩 Memory</button>
+    <button class="game-btn" onclick="loadGame('luck')">🍀 Luck</button>
+    <button class="game-btn" onclick="loadGame('counter')">🔢 Counter</button>
+    <button class="game-btn" onclick="loadGame('color')">🎨 Color</button>
+    <button class="game-btn" onclick="loadGame('speed')">🚀 Speed</button>
+    <button class="game-btn" onclick="loadGame('word')">📝 Word</button>
+    <button class="game-btn" onclick="loadGame('flag')">🚩 Flag Guess</button>
+    <button class="game-btn" onclick="loadGame('year')">📅 Year Guess</button>
   </div>
 
   <div id="game-area"></div>
@@ -203,89 +228,105 @@ button.game-btn:hover{background:#083d6b;transform:translateY(-4px)}
 
 </div>
 
+<section id="students">
+  <h2>🏫 Why the UN Matters to Students</h2>
+  <p>The United Nations helps students understand global citizenship.</p>
+  <ul>
+    <li>Teaches cooperation and diplomacy</li>
+    <li>Encourages respect for human rights</li>
+    <li>Shows how countries solve problems together</li>
+    <li>Inspires careers in international relations</li>
+  </ul>
+</section>
+
+<section id="conclusion">
+  <h2>📝 Conclusion</h2>
+  <p>The United Nations plays a vital role in maintaining peace and improving lives around the world.</p>
+  <p>Through cooperation, dialogue, and shared responsibility, the UN helps nations work toward a better future.</p>
+</section>
+
+<section id="summary">
+  <h2>🧾 Teacher-Style Summary</h2>
+  <p>This website explains the United Nations, its history, goals, structure, and global impact.</p>
+  <p>It includes interactive educational games, quizzes, and modern web features such as dark mode and search.</p>
+  <p>The project demonstrates understanding of international cooperation and responsible global citizenship.</p>
+</section>
+
 <footer style="text-align:center;padding:20px">United Nations School Project</footer>
 
 <script>
 const gameArea=document.getElementById('game-area');
-
 document.getElementById('darkToggle').onclick=()=>document.body.classList.toggle('dark');
+
+function searchSite(){
+  const q=document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('section').forEach(s=>{
+    s.style.display=s.innerText.toLowerCase().includes(q)?'block':'none';
+  });
+}
 
 function loadGame(name){
   gameArea.innerHTML='';
-  const card=document.createElement('div');
-  card.className='card';
-  gameArea.appendChild(card);
-
-  if(name==='quiz') quiz(card);
-  if(name==='rps') rps(card);
-  if(name==='guess') guess(card);
-  if(name==='math') math(card);
-  if(name==='typing') typing(card);
-  if(name==='reaction') reaction(card);
-  if(name==='tf') tf(card);
-  if(name==='spinner') spinner(card);
+  const c=document.createElement('div');c.className='card';gameArea.appendChild(c);
+  if(window[name]) window[name](c);
 }
 
-/* ===== GAMES (REWORKED) ===== */
 function quiz(c){
-  const q=[['UN founded year?','1945'],['Members?','193'],['HQ city?','New York']];
-  let i=0,score=0;
-  function next(){
-    if(i>=q.length){c.innerHTML=`<h3>Score: ${score}/${q.length}</h3>`;return}
-    c.innerHTML=`<p>${q[i][0]}</p><input id='a'><button>Submit</button>`;
-    c.querySelector('button').onclick=()=>{
-      if(a.value.toLowerCase().includes(q[i][1].toLowerCase()))score++;
-      i++;next();
-    }
-  }
+  const q=[
+    ['In what year was the UN founded?','1945'],
+    ['How many member states are in the UN?','193'],
+    ['Where is the UN headquarters located?','new york'],
+    ['How many Sustainable Development Goals exist?','17'],
+    ['Which UN organ maintains peace?','security council'],
+    ['What court settles disputes?','international court'],
+    ['What does UNHCR help with?','refugees']
+  ];
+  let i=0,s=0;
+  const next=()=>{
+    if(i>=q.length){c.innerHTML=`<h3>Final Score ${s}/${q.length}</h3>`;return}
+    c.innerHTML=`<p>${q[i][0]}</p><input id=a><button>Submit</button>`;
+    c.querySelector('button').onclick=()=>{if(a.value.toLowerCase().includes(q[i][1]))s++;i++;next();}
+  };
   next();
 }
-
-function rps(c){
-  c.innerHTML='<p>Choose one:</p>';
-  ['Rock','Paper','Scissors'].forEach(v=>{
-    const b=document.createElement('button');b.textContent=v;b.className='game-btn';
-    b.onclick=()=>{c.classList.add('shake');setTimeout(()=>c.classList.remove('shake'),400);alert('UN chose '+['Rock','Paper','Scissors'][Math.floor(Math.random()*3)])};
-    c.appendChild(b);
-  })
+function rps(c){['Rock','Paper','Scissors'].forEach(v=>{const b=document.createElement('button');b.className='game-btn';b.textContent=v;b.onclick=()=>alert('UN chose '+['Rock','Paper','Scissors'][Math.floor(Math.random()*3)]);c.appendChild(b);});}
+function guess(c){const n=Math.floor(Math.random()*10)+1;c.innerHTML='<input id=g><button>Guess</button>';c.querySelector('button').onclick=()=>alert(g.value==n?'Correct':'Wrong '+n)}
+function math(c){const a=Math.floor(Math.random()*10),b=Math.floor(Math.random()*10);c.innerHTML=`${a}+${b}? <input id=m><button>Check</button>`;c.querySelector('button').onclick=()=>alert(m.value==a+b?'Yes':'No')}
+function typing(c){c.innerHTML='<p>Type: peace</p><input id=t><button>Check</button>';c.querySelector('button').onclick=()=>alert(t.value==='peace'?'Good':'Nope')}
+function reaction(c){c.innerHTML='Wait...';setTimeout(()=>{c.innerHTML='<button class=game-btn>GO</button>';c.querySelector('button').onclick=()=>alert('Fast!')},1500)}
+function tf(c){['True','False'].forEach(v=>{const b=document.createElement('button');b.className='game-btn';b.textContent=v;b.onclick=()=>alert(v==='True'?'Correct':'Wrong');c.appendChild(b);});}
+function spinner(c){c.innerHTML='<button class=game-btn>Spin</button>';c.querySelector('button').onclick=()=>alert(['Win','Lose','Again'][Math.floor(Math.random()*3)])}
+function coin(c){c.innerHTML='<button class=game-btn>Flip</button>';c.querySelector('button').onclick=()=>alert(Math.random()<.5?'Heads':'Tails')}
+function dice(c){c.innerHTML='<button class=game-btn>Roll</button>';c.querySelector('button').onclick=()=>alert(1+Math.floor(Math.random()*6))}
+function capital(c){c.innerHTML='<p>Capital of France?</p><button>Paris</button><button>Rome</button>';c.querySelectorAll('button')[0].onclick=()=>alert('Correct');c.querySelectorAll('button')[1].onclick=()=>alert('Wrong')}
+function clicker(c){let n=0;c.innerHTML='<button class=game-btn>Click</button><p>0</p>';c.querySelector('button').onclick=()=>{n++;c.querySelector('p').textContent=n}}
+function memory(c){
+  const word='UN';
+  c.innerHTML=`<p>Remember this word:</p><h3>${word}</h3>`;
+  setTimeout(()=>{
+    c.innerHTML='<p>What was the word?</p><input id=x><button>Check</button>';
+    c.querySelector('button').onclick=()=>alert(x.value===word?'Correct!':'Wrong');
+  },1500);
+}
+function luck(c){c.innerHTML=Math.random()>.5?'Lucky 🎉':'Unlucky 😢'}
+function counter(c){let i=0;c.innerHTML='<button class=game-btn>+</button><p>0</p>';c.querySelector('button').onclick=()=>{i++;c.querySelector('p').textContent=i}}
+function color(c){c.innerHTML='<button class=game-btn>Change</button>';c.querySelector('button').onclick=()=>c.style.background=['red','blue','green'][Math.floor(Math.random()*3)]}
+function speed(c){let t=Date.now();c.innerHTML='<button class=game-btn>Click Fast</button>';c.querySelector('button').onclick=()=>alert(Date.now()-t+' ms')}
+function word(c){
+  const words=['peace','unity','rights','justice'];
+  const w=words[Math.floor(Math.random()*words.length)];
+  c.innerHTML=`<p>Type the word:</p><h3>${w}</h3><input id=t><button>Check</button>`;
+  c.querySelector('button').onclick=()=>alert(t.value===w?'Correct':'Try again');
+}
+function flag(c){
+  c.innerHTML='<p>Which flag belongs to the UN?</p><button>Blue with olive branches</button><button>Red stripes</button>';
+  c.querySelectorAll('button')[0].onclick=()=>alert('Correct');
+  c.querySelectorAll('button')[1].onclick=()=>alert('Wrong');
 }
 
-function guess(c){
-  const n=Math.floor(Math.random()*10)+1;
-  c.innerHTML='<p>Guess number 1–10</p><input id=g><button>Check</button>';
-  c.querySelector('button').onclick=()=>alert(g.value==n?'Correct!':'Wrong! '+n);
-}
-
-function math(c){
-  const a=Math.floor(Math.random()*10),b=Math.floor(Math.random()*10);
-  c.innerHTML=`<p>${a}+${b}=?</p><input id=m><button>Check</button>`;
-  c.querySelector('button').onclick=()=>alert(m.value==a+b?'Correct':'Wrong');
-}
-
-function typing(c){
-  const w='peace';
-  c.innerHTML=`<p>Type <b>${w}</b></p><input id=t><button>Check</button>`;
-  c.querySelector('button').onclick=()=>alert(t.value===w?'Nice!':'Try again');
-}
-
-function reaction(c){
-  c.innerHTML='<p>Wait for GO...</p>';
-  setTimeout(()=>{c.innerHTML='<button class="game-btn">GO!</button>';c.querySelector('button').onclick=()=>alert('Fast!')},1500+Math.random()*2000)
-}
-
-function tf(c){
-  c.innerHTML='<p>The UN was founded in 1945</p>';
-  ['True','False'].forEach(v=>{
-    const b=document.createElement('button');b.textContent=v;b.className='game-btn';
-    b.onclick=()=>alert(v==='True'?'Correct':'Wrong');
-    c.appendChild(b);
-  })
-}
-
-function spinner(c){
-  const p=['Win','Try Again','Bonus','Nothing'];
-  c.innerHTML='<button class="game-btn">Spin</button>';
-  c.querySelector('button').onclick=()=>alert(p[Math.floor(Math.random()*p.length)])
+function year(c){
+  c.innerHTML='<p>What year did World War II end?</p><input id=y><button>Check</button>';
+  c.querySelector('button').onclick=()=>alert(y.value=='1945'?'Correct':'Wrong');
 }
 </script>
 
